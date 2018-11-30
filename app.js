@@ -21,6 +21,10 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+
+// app.set('view options', { layout: 'layouts/layout' });
+
+app.locals.layout = path.join(__dirname, 'views', 'layouts', 'layout')
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

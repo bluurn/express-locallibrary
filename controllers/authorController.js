@@ -11,7 +11,7 @@ exports.author_list = function(req, res) {
     .exec(function (err, list_authors) {
       if (err) { return next(err); }
       //Successful, so render
-      res.render('author/list', { title: 'Author List', author_list: list_authors });
+      res.render('author/index', { title: 'Author List', author_list: list_authors });
     });
 };
 
@@ -40,7 +40,7 @@ exports.author_detail = function(req, res) {
 
 // Display Author create form on GET.
 exports.author_create_get = function(req, res) {
-    res.render('author_form', { title: 'Create Author'});
+    res.render('author/form', { title: 'Create Author'});
 };
 
 // Handle Author create on POST.

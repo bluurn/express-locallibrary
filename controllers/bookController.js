@@ -36,7 +36,7 @@ exports.book_list = function(req, res) {
     .exec(function (err, list_books) {
       if (err) { return next(err); }
       //Successful, so render
-      res.render('book_list', { title: 'Book List', book_list: list_books });
+      res.render('book/index', { title: 'Book List', book_list: list_books });
     });
 };
 
@@ -62,7 +62,7 @@ exports.book_detail = function(req, res) {
             return next(err);
         }
         // Successful, so render.
-        res.render('book_detail', { title: 'Title', book: results.book, book_instances: results.book_instance } );
+        res.render('book/detail', { title: 'Title', book: results.book, book_instances: results.book_instance } );
     });
 };
 
@@ -79,7 +79,7 @@ exports.book_create_get = function(req, res, next) {
         },
     }, function(err, results) {
         if (err) { return next(err); }
-        res.render('book_form', { title: 'Create Book', authors: results.authors, genres: results.genres });
+        res.render('book/form', { title: 'Create Book', authors: results.authors, genres: results.genres });
     });
 
 };
@@ -141,7 +141,7 @@ exports.book_create_post = [
                         results.genres[i].checked='true';
                     }
                 }
-                res.render('book_form', { title: 'Create Book',authors:results.authors, genres:results.genres, book: book, errors: errors.array() });
+                res.render('book/form', { title: 'Create Book',authors:results.authors, genres:results.genres, book: book, errors: errors.array() });
             });
             return;
         }
@@ -196,7 +196,7 @@ exports.book_update_get = function(req, res) {
                     }
                 }
             }
-            res.render('book_form', { title: 'Update Book', authors:results.authors, genres:results.genres, book: results.book });
+            res.render('book/form', { title: 'Update Book', authors:results.authors, genres:results.genres, book: results.book });
         });
 };
 
@@ -263,7 +263,7 @@ exports.book_update_post = [
                         results.genres[i].checked='true';
                     }
                 }
-                res.render('book_form', { title: 'Update Book',authors:results.authors, genres:results.genres, book: book, errors: errors.array() });
+                res.render('book/form', { title: 'Update Book',authors:results.authors, genres:results.genres, book: book, errors: errors.array() });
             });
             return;
         }

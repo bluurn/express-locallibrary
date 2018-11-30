@@ -10,7 +10,7 @@ exports.genre_list = function(req, res) {
     .sort([['name', 'ascending']])
     .exec(function (err, list_genres) {
       if (err) { return next(err); }
-      res.render('genre_list', { title: 'Genre list', genre_list: list_genres})
+      res.render('genre/index', { title: 'Genre list', genre_list: list_genres})
     })
 };
 
@@ -35,13 +35,13 @@ exports.genre_detail = function(req, res, next) {
             return next(err);
         }
         // Successful, so render
-        res.render('genre_detail', { title: 'Genre Detail', genre: results.genre, genre_books: results.genre_books } );
+        res.render('genre/detail', { title: 'Genre Detail', genre: results.genre, genre_books: results.genre_books } );
     });
 };
 
 // Display Genre create form on GET.
 exports.genre_create_get = function(req, res) {
-    res.render('genre_form', { title: 'Create Genre' });
+    res.render('genre/form', { title: 'Create Genre' });
 };
 
 // Handle Genre create on POST.
@@ -65,7 +65,7 @@ exports.genre_create_post =  [
 
         if (!errors.isEmpty()) {
         // There are errors. Render the form again with sanitized values/error messages.
-        res.render('genre_form', { title: 'Create Genre', genre: genre, errors: errors.array()});
+        res.render('genre/form', { title: 'Create Genre', genre: genre, errors: errors.array()});
         return;
         }
         else {
