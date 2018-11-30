@@ -2,7 +2,7 @@ var Book = require('../models/book');
 var Author = require('../models/author');
 var Genre = require('../models/genre');
 var BookInstance = require('../models/bookinstance');
-const { body,validationResult } = require('express-validator/check');
+const { body, validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
 
 var async = require('async');
@@ -240,7 +240,7 @@ exports.book_update_post = [
             summary: req.body.summary,
             isbn: req.body.isbn,
             genre: (typeof req.body.genre==='undefined') ? [] : req.body.genre,
-            _id:req.params.id //This is required, or a new ID will be assigned!
+            _id: req.params.id //This is required, or a new ID will be assigned!
            });
 
         if (!errors.isEmpty()) {
