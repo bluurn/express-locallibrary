@@ -1,0 +1,12 @@
+extends ../layouts/layout
+
+block content
+
+  h1 Book: #{book.title}
+  p Do you really want to delete this Book?
+
+  form(method='POST' action='')
+    div.form-group
+      input#authorid.form-control(type='hidden',name='authorid', required='true', value=book._id )
+
+    button.btn.btn-primary(type='submit') Delete

@@ -113,13 +113,13 @@ exports.book_create_post = [
         const errors = validationResult(req);
 
         // Create a Book object with escaped and trimmed data.
-        var book = new Book(
-          { title: req.body.title,
+        var book = new Book({
+            title: req.body.title,
             author: req.body.author,
             summary: req.body.summary,
             isbn: req.body.isbn,
             genre: req.body.genre
-           });
+        });
 
         if (!errors.isEmpty()) {
             // There are errors. Render form again with sanitized values/error messages.
@@ -157,13 +157,22 @@ exports.book_create_post = [
 ];
 
 // Display book delete form on GET.
-exports.book_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Book delete GET');
+exports.book_delete_get = function(req, res, next) {
+    Book.findById(req.params.id).exec(function (err, book) {
+        if(err) { return next(err); }
+        if(book == null) {
+            res.redirect('/catalog/books')
+        }
+        res.render('book/delete', { title: 'Delete Book', book: book });
+    });
 };
 
 // Handle book delete on POST.
-exports.book_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Book delete POST');
+exports.book_delete_post = function(req, res, next) {
+    Book.findByIdAndRemove(req.params.id).exec(function (err, book) {
+        if (err) { return next(err); }
+        res.redirect('/catalog/books')
+    });
 };
 
 // Display book update form on GET.
@@ -171,15 +180,15 @@ exports.book_update_get = function(req, res) {
 
     // Get book, authors and genres for form.
     async.parallel({
-        book: function(callback) {
-            Book.findById(req.params.id).populate('author').populate('genre').exec(callback);
-        },
-        authors: function(callback) {
-            Author.find(callback);
-        },
-        genres: function(callback) {
-            Genre.find(callback);
-        },
+            book: function(callback) {
+                Book.findById(req.params.id).populate('author').populate('genre').exec(callback);
+            },
+            authors: function(callback) {
+                Author.find(callback);
+            },
+            genres: function(callback) {
+                Genre.find(callback);
+            },
         }, function(err, results) {
             if (err) { return next(err); }
             if (results.book==null) { // No results.
@@ -266,8 +275,7 @@ exports.book_update_post = [
                 res.render('book/form', { title: 'Update Book',authors:results.authors, genres:results.genres, book: book, errors: errors.array() });
             });
             return;
-        }
-        else {
+        } else {
             // Data from form is valid. Update the record.
             Book.findByIdAndUpdate(req.params.id, book, {}, function (err,thebook) {
                 if (err) { return next(err); }
