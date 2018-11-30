@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoURL = 'mongodb://localhost/local_library';
+var mongoURL = 'mongodb://mongo/local_library';
 mongoose.connect(mongoURL, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;

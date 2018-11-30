@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - "dbdata:/data/db"
+    ports:
+      - "27017:27017"
+  app:
+    restart: always
+    volumes:
+      - ".:/usr/src/app"
+    build: .
+    command: npm run devstart
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+volumes:
+  dbdata:
