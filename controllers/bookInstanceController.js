@@ -159,7 +159,6 @@ exports.bookinstance_update_post = [
             due_back: req.body.due_back,
             _id: req.params.id
         });
-        console.log('!!!!', errors)
         if (!errors.isEmpty()) {
             Book.find({}, 'title').exec((err, book_list) =>
                 res.render('book_instance/form', {
