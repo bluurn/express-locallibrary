@@ -1,8 +1,11 @@
-var express = require('express');
-var router = express.Router();
+import catalog_controller from '../controllers/catalog/controller';
+import book_controller from '../controllers/book/controller';
+
+import { Router } from 'express';
+
+const router = Router();
 
 // Require controller modules.
-var book_controller = require('../controllers/bookController');
 var author_controller = require('../controllers/author/controller');
 var genre_controller = require('../controllers/genreController');
 var book_instance_controller = require('../controllers/bookInstanceController');
@@ -10,7 +13,7 @@ var book_instance_controller = require('../controllers/bookInstanceController');
 /// BOOK ROUTES ///
 
 // GET catalog home page.
-router.get('/', book_controller.index);
+router.get('/', catalog_controller.index);
 
 // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
 router.get('/book/create', book_controller.book_create_get);
