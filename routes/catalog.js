@@ -1,45 +1,45 @@
-import catalog_controller from '../controllers/catalog/controller';
-import book_controller from '../controllers/book/controller';
-import author_controller from '../controllers/author/controller';
-import genre_controller from '../controllers/genre/controller';
-import book_instance_controller from '../controllers/book_instance/controller';
+import catalogController from '../controllers/catalog/controller';
+import bookController from '../controllers/book/controller';
+import authorController from '../controllers/author/controller';
+import genreController from '../controllers/genre/controller';
+import bookInstanceController from '../controllers/book_instance/controller';
 import { Router } from 'express';
 
 export default Router()
-  .get('/', catalog_controller.index)
+  .get('/', catalogController.index)
 
-  .get('/book/create', book_controller.create_form)
-  .post('/book/create', book_controller.create)
-  .get('/book/:id/delete', book_controller.destroy_form)
-  .post('/book/:id/delete', book_controller.destroy)
-  .get('/book/:id/update', book_controller.update_form)
-  .post('/book/:id/update', book_controller.update)
-  .get('/book/:id', book_controller.show)
-  .get('/books', book_controller.index)
+  .get('/book/create', bookController.createForm)
+  .post('/book/create', bookController.create)
+  .get('/book/:id/delete', bookController.destroyForm)
+  .post('/book/:id/delete', bookController.destroy)
+  .get('/book/:id/update', bookController.updateForm)
+  .post('/book/:id/update', bookController.update)
+  .get('/book/:id', bookController.show)
+  .get('/books', bookController.index)
 
-  .get('/author/create', author_controller.create_form)
-  .post('/author/create', author_controller.create)
-  .get('/author/:id/delete', author_controller.destroy_form)
-  .post('/author/:id/delete', author_controller.destroy)
-  .get('/author/:id/update', author_controller.update_form)
-  .post('/author/:id/update', author_controller.update)
-  .get('/author/:id', author_controller.show)
-  .get('/authors', author_controller.index)
+  .get('/author/create', authorController.createForm)
+  .post('/author/create', authorController.create)
+  .get('/author/:id/delete', authorController.destroyForm)
+  .post('/author/:id/delete', authorController.destroy)
+  .get('/author/:id/update', authorController.updateForm)
+  .post('/author/:id/update', authorController.update)
+  .get('/author/:id', authorController.show)
+  .get('/authors', authorController.index)
 
-  .get('/genre/create', genre_controller.create_form)
-  .post('/genre/create', genre_controller.create)
-  .get('/genre/:id/delete', genre_controller.destroy_form)
-  .post('/genre/:id/delete', genre_controller.destroy)
-  .get('/genre/:id/update', genre_controller.update_form)
-  .post('/genre/:id/update', genre_controller.update)
-  .get('/genre/:id', genre_controller.show)
-  .get('/genres', genre_controller.index)
+  .get('/genre/create', genreController.createForm)
+  .post('/genre/create', genreController.create)
+  .get('/genre/:id/delete', genreController.destroyForm)
+  .post('/genre/:id/delete', genreController.destroy)
+  .get('/genre/:id/update', genreController.updateForm)
+  .post('/genre/:id/update', genreController.update)
+  .get('/genre/:id', genreController.show)
+  .get('/genres', genreController.index)
 
-  .get('/bookinstance/create', book_instance_controller.create_form)
-  .post('/bookinstance/create', book_instance_controller.create)
-  .get('/bookinstance/:id/delete', book_instance_controller.destroy_form)
-  .post('/bookinstance/:id/delete', book_instance_controller.destroy)
-  .get('/bookinstance/:id/update', book_instance_controller.update_form)
-  .post('/bookinstance/:id/update', book_instance_controller.update)
-  .get('/bookinstance/:id', book_instance_controller.show)
-  .get('/bookinstances', book_instance_controller.index);
+  .get('/bookinstance/create', bookInstanceController.createForm)
+  .post('/bookinstance/create', bookInstanceController.create)
+  .get('/bookinstance/:id/delete', bookInstanceController.destroyForm)
+  .post('/bookinstance/:id/delete', bookInstanceController.destroy)
+  .get('/bookinstance/:id/update', bookInstanceController.updateForm)
+  .post('/bookinstance/:id/update', bookInstanceController.update)
+  .get('/bookinstance/:id', bookInstanceController.show)
+  .get('/bookinstances', bookInstanceController.index);
