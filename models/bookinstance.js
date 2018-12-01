@@ -1,18 +1,13 @@
-var mongoose = require('mongoose');
-var moment = require('moment');
+import { Schema, model } from 'mongoose';
+import moment from 'moment';
 
-var Schema = mongoose.Schema;
+const BookInstanceSchema = new Schema({
+  book: { type: Schema.Types.ObjectId, ref: 'Book', required: true },
+  imprint: { type: String, required: true },
+  status: { type: String, required: true, enum: ['Available', 'Maintenance', 'Loaned', 'Reserved'], default: 'Maintenance' },
+  due_back: { type: Date, default: Date.now }
+});
 
-var BookInstanceSchema = new Schema(
-  {
-    book: { type: Schema.Types.ObjectId, ref: 'Book', required: true }, //reference to the associated book
-    imprint: {type: String, required: true},
-    status: {type: String, required: true, enum: ['Available', 'Maintenance', 'Loaned', 'Reserved'], default: 'Maintenance'},
-    due_back: {type: Date, default: Date.now}
-  }
-);
-
-// Virtual for bookinstance's URL
 BookInstanceSchema
 .virtual('url')
 .get(function () {
@@ -25,5 +20,4 @@ BookInstanceSchema
   return moment(this.due_back).format('YYYY-MM-DD');
 });
 
-//Export model
-module.exports = mongoose.model('BookInstance', BookInstanceSchema);
+export default model('BookInstance', BookInstanceSchema);

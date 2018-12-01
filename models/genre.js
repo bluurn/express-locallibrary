@@ -1,12 +1,9 @@
-var mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-var Schema = mongoose.Schema;
 
-var GenreSchema = new Schema(
-  {
-    name: { type: Schema.Types.String, required: true, min: 3, max: 10 }
-  }
-);
+var GenreSchema = new Schema({
+  name: { type: Schema.Types.String, required: true, min: 3, max: 10 }
+});
 
 GenreSchema
 .virtual('url')
@@ -14,4 +11,4 @@ GenreSchema
   return '/catalog/genre/' + this._id;
 });
 
-module.exports = mongoose.model('Genre', GenreSchema);
+export default model('Genre', GenreSchema);

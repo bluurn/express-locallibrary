@@ -1,9 +1,5 @@
-var express = require('express');
-var router = express.Router();
+import { Router } from 'express';
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
+export default Router().get('/', function(req, res, next) {
   res.redirect('/catalog');
 });
-
-module.exports = router;
