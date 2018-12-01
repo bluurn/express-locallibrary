@@ -1,19 +1,19 @@
-import bookinstance_list from './actions/index';
-import bookinstance_detail from './actions/show';
-import bookinstance_create_get from './actions/create_form';
-import bookinstance_create_post from './actions/create';
-import bookinstance_delete_get from './actions/delete_form';
-import bookinstance_delete_post from './actions/delete';
-import bookinstance_update_get from './actions/update_form';
-import bookinstance_update_post from './actions/update';
+import index from './actions/index';
+import show from './actions/show';
+import create_form from './actions/create_form';
+import create from './actions/create';
+import destroy_form from './actions/destroy_form';
+import destroy from './actions/destroy';
+import update_form from './actions/update_form';
+import update from './actions/update';
 
 export default {
-  bookinstance_list,
-  bookinstance_detail,
-  bookinstance_create_get,
-  bookinstance_create_post,
-  bookinstance_delete_get,
-  bookinstance_delete_post,
-  bookinstance_update_get,
-  bookinstance_update_post
+  index,
+  show,
+  create_form,
+  create,
+  destroy_form,
+  destroy,
+  update_form,
+  update
 }

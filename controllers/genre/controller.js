@@ -1,19 +1,19 @@
-import genre_list from './actions/index';
-import genre_detail from './actions/show';
-import genre_create_get from './actions/create_form';
-import genre_create_post from './actions/create';
-import genre_delete_get from './actions/delete_form';
-import genre_delete_post from './actions/delete';
-import genre_update_get from './actions/update_form';
-import genre_update_post from './actions/update';
+import index from './actions/index';
+import show from './actions/show';
+import create_form from './actions/create_form';
+import create from './actions/create';
+import destroy_form from './actions/destroy_form';
+import destroy from './actions/destroy';
+import update_form from './actions/update_form';
+import update from './actions/update';
 
 export default {
-    genre_list,
-    genre_detail,
-    genre_create_get,
-    genre_create_post,
-    genre_delete_get,
-    genre_delete_post,
-    genre_update_get,
-    genre_update_post
+  index,
+  show,
+  create_form,
+  create,
+  destroy_form,
+  destroy,
+  update_form,
+  update
 };
