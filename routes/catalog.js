@@ -1,7 +1,7 @@
 import catalog_controller from '../controllers/catalog/controller';
 import book_controller from '../controllers/book/controller';
 import author_controller from '../controllers/author/controller';
-import genre_controller from '../controllers/genreController';
+import genre_controller from '../controllers/genre/controller';
 import book_instance_controller from '../controllers/book_instance/controller';
 import { Router } from 'express';
 
