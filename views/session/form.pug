@@ -1,0 +1,19 @@
+extends ../layouts/login
+
+block content
+  h1 Login
+
+  form.form-signin(method='POST' action='')
+    div.form-group
+      label(for='name') Username:
+      input#username.form-control(type='text' name='username')
+    div.form-group
+      label(for='name') Password:
+      input#password.form-control(type='password' name='password')
+
+    button.btn.btn-primary(type='submit') Login
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
