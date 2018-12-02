@@ -20,7 +20,7 @@ export default (req, res, next) =>
   }, (err, results) => {
       if (err) { return next(err); }
 
-      return res.render('index', {
+      return res.render('catalog/index', {
         title: 'Local Library Home',
         error: err,
         data: results

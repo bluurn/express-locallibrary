@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 
-var GenreSchema = new Schema({
+const GenreSchema = new Schema({
   name: { type: Schema.Types.String, required: true, min: 3, max: 10 }
 });
 
