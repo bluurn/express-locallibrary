@@ -18,6 +18,7 @@ Project inspired by this article: [Express web framework](https://developer.mozi
 ```
 
 3. Go to <http://localhost:3000/>
+4. Type in `indiana` as a username and `johnes` as a password and log in.
 
 ## How to stop
 
