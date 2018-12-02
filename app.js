@@ -8,10 +8,10 @@ import sessionParser from 'express-session';
 
 import passport from 'passport';
 import { LocalPasswordStrategy, serializeUser, deserializeUser } from './strategies/local_password';
-import { ensureLoggedIn } from 'connect-ensure-login';
 
 import indexRouter from './routes/index';
 import catalogRouter from './routes/catalog';
+import authRouter from './routes/auth';
 
 const app = express();
 const config = require(`./config/${app.get('env')}`);
@@ -36,7 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use(ensureLoggedIn());
+app.use('/', authRouter);
 app.use('/catalog', catalogRouter);
 
 app.use((req, res, next) => next(createError(404)));

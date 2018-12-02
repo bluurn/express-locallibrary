@@ -3,9 +3,12 @@ import bookController from '../controllers/book/controller';
 import authorController from '../controllers/author/controller';
 import genreController from '../controllers/genre/controller';
 import bookInstanceController from '../controllers/book_instance/controller';
+
+import { ensureLoggedIn } from 'connect-ensure-login';
 import { Router } from 'express';
 
 export default Router()
+  .use(ensureLoggedIn())
   .get('/', catalogController.index)
 
   .get('/book/create', bookController.createForm)
