@@ -1,6 +1,6 @@
 {
-  "name": "helloworld",
-  "version": "0.0.0",
+  "name": "local_library",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "./node_modules/babel-cli/bin/babel-node.js bin/www",
