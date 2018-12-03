@@ -4,7 +4,6 @@ RUN apk add --update --no-cache --virtual .npm-deps \
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
-RUN npm install
 EXPOSE 3000
-CMD [ "bash" ]
+CMD [ "yarn" ]
 # 11.3.0

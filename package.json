@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "./node_modules/babel-cli/bin/babel-node.js bin/www",
-    "devstart": "nodemon bin/www --exec 'node -r babel-register'",
-    "populatedb": "./node_modules/babel-cli/bin/babel-node.js bin/populatedb"
+    "start": "yarn && ./node_modules/babel-cli/bin/babel-node.js bin/www",
+    "devstart": "yarn && ./node_modules/nodemon/bin/nodemon.js bin/www --exec 'node -r babel-register'",
+    "populatedb": "yarn && ./node_modules/babel-cli/bin/babel-node.js bin/populatedb"
   },
   "dependencies": {
     "async": "^2.6.1",
+    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "bcrypt": "^3.0.2",
     "connect-ensure-login": "^0.1.1",
     "cookie-parser": "~1.4.3",
@@ -27,8 +29,6 @@
     "pug": "^2.0.3"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.1.6",
-    "babel-core": "^6.26.3",
     "babel-plugin-add-module-exports": "^1.0.0",
     "nodemon": "^1.18.7"
   },

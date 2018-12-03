@@ -8,7 +8,7 @@ Project inspired by this article: [Express web framework](https://developer.mozi
 
 ```bash
   docker-compose build
-  docker-compose run --rm app npm run populatedb
+  docker-compose run --rm app yarn run populatedb
 ```
 
 2. Type this command to run the application:
