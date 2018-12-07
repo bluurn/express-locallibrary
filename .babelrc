@@ -1,13 +1,6 @@
 {
   "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "node": "current"
-        }
-      }
-    ]
+    "env"
   ],
   "plugins": [
     "add-module-exports"
