@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "yarn && ./node_modules/babel-cli/bin/babel-node.js bin/www",
-    "devstart": "yarn && ./node_modules/nodemon/bin/nodemon.js bin/www --exec 'node -r babel-register'",
-    "populatedb": "yarn && ./node_modules/babel-cli/bin/babel-node.js bin/populatedb"
+    "start": "yarn && ./node_modules/babel-cli/bin/babel-node.js server/bin/www",
+    "devstart": "yarn && ./node_modules/nodemon/bin/nodemon.js server/bin/www --exec 'node -r babel-register'",
+    "populatedb": "yarn && ./node_modules/babel-cli/bin/babel-node.js server/bin/populatedb"
   },
   "dependencies": {
     "async": "^2.6.1",

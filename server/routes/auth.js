@@ -1,4 +1,4 @@
-import session_controller from '../controllers/session/controller';
+import session_controller from '../controllers/session';
 
 import { Router } from 'express';
 
