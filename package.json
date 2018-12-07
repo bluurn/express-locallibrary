@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "yarn && ./node_modules/babel-cli/bin/babel-node.js server/bin/www",
-    "devstart": "yarn && ./node_modules/nodemon/bin/nodemon.js server/bin/www --exec 'node -r babel-register'",
-    "populatedb": "yarn && ./node_modules/babel-cli/bin/babel-node.js server/bin/populatedb"
+    "start": "./node_modules/.bin/babel-node server/bin/www",
+    "devstart": "./node_modules/.bin/babel-node ./node_modules/.bin/nodemon server/bin/www",
+    "populatedb": "./node_modules/.bin/babel-node server/bin/populatedb"
   },
   "dependencies": {
     "async": "^2.6.1",
-    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
@@ -31,20 +30,5 @@
   "devDependencies": {
     "babel-plugin-add-module-exports": "^1.0.0",
     "nodemon": "^1.18.7"
-  },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ],
-    "plugins": [
-      "add-module-exports"
-    ]
   }
 }

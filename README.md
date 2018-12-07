@@ -8,6 +8,8 @@ Project inspired by this article: [Express web framework](https://developer.mozi
 
 ```bash
   docker-compose build
+
+  docker-compose run --rm app yarn install
   docker-compose run --rm app yarn run populatedb
 ```
 
